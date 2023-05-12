@@ -6,6 +6,7 @@ Configuration for connecting to the target Postgres DB should be given
 as environment variables including database name, user, password, port,
 and the name of the host where the database is running.
 '''
+
 import os
 import sys
 import psycopg2
@@ -63,7 +64,7 @@ print("Table created successfully........")
 print("Generating test data for 100 employees")
 fake = Faker()
 
-for i in range(0, 100):
+for _ in range(0, 100):
     first_name = fake.first_name()
     last_name = fake.last_name()
 
@@ -80,7 +81,7 @@ employees = cursor.fetchall()
 print("{:<3} {:<20} {:<20}".format('ID', 'FIRST_NAME', 'LAST_NAME'))
 print("{:<3} {:<20} {:<20}".format('--', '----------', '---------'))
 
-for employee in employees[0:10]:
+for employee in employees[:10]:
     (id_number, first_name, last_name) = employee
     print("{:<3} {:<20} {:<20}".format(id_number, first_name, last_name))
 

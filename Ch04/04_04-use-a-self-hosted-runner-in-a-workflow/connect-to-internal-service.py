@@ -6,7 +6,7 @@ import string
 
 # This function simulates connecting to an internal service
 def connect():
-  return ''.join(random.choice(string.ascii_letters) for i in range(10))
+  return ''.join(random.choice(string.ascii_letters) for _ in range(10))
 
 # Run the process 100 times
 for i in range(0, 100):
